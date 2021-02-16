@@ -14,11 +14,7 @@ import java.util.Objects;
 
 public class Main extends JavaPlugin implements Listener
 {
-    //TODO: Write function so that if a player places a chest close to
-    //TODO: A spawner he gets a message he can use the plugin.
-
-    private File customConfigFile;
-    private FileConfiguration customConfig;
+    private FileConfiguration priceConfig;
     private static Economy econ = null;
 
     @Override
@@ -56,13 +52,13 @@ public class Main extends JavaPlugin implements Listener
 
     private void createCustomConfig()
     {
-        customConfigFile = new File(getDataFolder(), "prices.yml");
-        if (!customConfigFile.exists()) {
+        File priceConfigFile = new File(getDataFolder(), "prices.yml");
+        if (!priceConfigFile.exists()) {
             saveResource("prices.yml", false);
         }
-        customConfig = new YamlConfiguration();
+        priceConfig = new YamlConfiguration();
         try {
-            customConfig.load(customConfigFile);
+            priceConfig.load(priceConfigFile);
         } catch (IOException | InvalidConfigurationException e) {
             e.printStackTrace();
         }
@@ -78,9 +74,9 @@ public class Main extends JavaPlugin implements Listener
     public FileConfiguration getCustomConfig() throws IOException, InvalidConfigurationException
     {
         File file = new File(getDataFolder(), "prices.yml");
-        customConfig = new YamlConfiguration();
-        customConfig.load(file);
-        return customConfig;
+        priceConfig = new YamlConfiguration();
+        priceConfig.load(file);
+        return priceConfig;
     }
 
 }
