@@ -1,0 +1,5 @@
+com\minecraftercity\chestsell\RegisterChestCommand.class
+com\minecraftercity\chestsell\Config.class
+com\minecraftercity\chestsell\Main.class
+com\minecraftercity\chestsell\RunnableBalancer.class
+com\minecraftercity\chestsell\RunnableSeller.class
